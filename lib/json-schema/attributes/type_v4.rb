@@ -15,10 +15,7 @@ module JSON
 
         types = types.map { |type| type.is_a?(String) ? type : '(schema)' }.join(', ')
         message = format(
-          "The property '%s' of type %s did not match %s: %s",
-          build_fragment(fragments),
-          data.class,
-          union ? 'one or more of the following types' : 'the following type',
+          "#{fragments.join('/')} must be a '%s'",
           types
         )
 
